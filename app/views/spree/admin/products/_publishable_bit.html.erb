@@ -1,0 +1,4 @@
+<%= f.field_container :publishable do %>
+  <%= f.label :publishable, raw(Spree.t(:publishable)) , class: 'spree-publishablility'%>
+  <%= f.check_box :publishable, :value => (@object.publishable), class: 'spree-publishablility'%>
+<% end %>

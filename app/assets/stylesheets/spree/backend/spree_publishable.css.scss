@@ -1,0 +1,18 @@
+/*
+Placeholder manifest file.
+the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
+*/
+#variant_publishable_field, #product_publishable_field{
+  label, input {
+    display: inline-block !important;
+    width:25% !important;
+    float: left;
+  }
+}
+.search-publishability {
+  float: right;
+  input {
+    margin:2px;
+  }
+}
+
