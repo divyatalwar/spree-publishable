@@ -26,21 +26,16 @@ Spree::Variant.class_eval do
   def destroy_items_and_update_order(variant)
     variant.line_items.each do |line_item|
       order = line_item.order
-      line_item.destroy
-      update_order_status(order)
+      if !order.complete?
+        line_item.destroy 
+        update_order_info(order)
+      end
     end
   end
 
-  def update_order_status(order)
+  def update_order_info(order)
     updater = Spree::OrderContents.new(order)
-    updater.update_cart_info#send(:reload_totals)
-    # order_updater = Spree::OrderUpdater.new(order)
-    # order_updater.update_item_count
-    # order_updater.update_item_total
-    # order_updater.update_adjustment_total
-    # order_updater.update_payment_state if order.completed?
-    # order_updater.persist_totals
-    # order.reload
+    updater.update_cart_info
   end
 
 end
