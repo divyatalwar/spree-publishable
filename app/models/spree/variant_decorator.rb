@@ -35,7 +35,7 @@ Spree::Variant.class_eval do
 
   def update_order_info(order)
     updater = Spree::OrderContents.new(order)
-    updater.reload_cart
+    updater.reload_cart_contents
   end
 
 end
