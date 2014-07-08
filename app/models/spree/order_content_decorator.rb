@@ -1,6 +1,6 @@
 Spree::OrderContents.class_eval do
   
-  def update_cart_info
+  def reload_cart
     reload_totals
   end
 end
